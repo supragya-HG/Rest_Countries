@@ -1,0 +1,49 @@
+.flag{
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 1em;
+    /* background-image: url({indFlag}); */
+}
+.flagImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* background-image: url({indFlag}); */
+}
+
+.countryDiv{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    height: inherit;
+}
+
+.countryName{
+    text-align: left;
+    font-weight: 600;
+    font-size: large;
+    margin-left: 0.9em;
+    margin-bottom: 0.6em;
+}
+
+.countryInfo{
+    text-align: left;
+    font-weight: 400;
+    margin-left: 1em;
+}
+
+.countryInfoData{
+    text-align: left;
+    font-weight: 300;
+}
+
+@media (max-width: 375px) {
+    .countryDiv{
+        margin: 1em;
+    }
+  }

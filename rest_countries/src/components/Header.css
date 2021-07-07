@@ -1,0 +1,23 @@
+.header{
+    justify-content: space-between;
+    display: flex;
+    width: 100vw;
+    height: inherit;
+    align-items: center;
+    /* margin-left: 1em;
+    margin-right: 1em; */
+    margin-bottom: 0.1em;
+    border-bottom: black;
+}
+.heading{
+    /* justify-content: flex-start; */
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.mode-button{
+    /* justify-content: flex-end; */
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: inherit;
+    border: none;
+}
