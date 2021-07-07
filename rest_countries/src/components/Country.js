@@ -1,5 +1,4 @@
 import './Country.css'
-import indFlag from '../Flags/ind.svg'
 
 function Country(props){
     // const countryName = 'India';
@@ -9,11 +8,11 @@ function Country(props){
     return (
         <div className = 'countryDiv'>
             <div className='flag'>
-                <img src = {indFlag} alt = 'logo' className='flagImage'/>
+                <img src = {props.flagUrl} alt = 'flag' className='flagImage'/>
             </div>
             <div className='countryName'>{props.name}</div>
             <div className='countryInfo'>Population: <span className='countryInfoData'>{props.population}</span></div>
-            <div className='countryInfo'>Region: <span className='countryInfoData'>{props.capital}</span></div>
+            <div className='countryInfo'>Region: <span className='countryInfoData'>{props.region}</span></div>
             <div className='countryInfo'>Capital: <span className='countryInfoData'>{props.capital}</span></div>
         </div>
     );
