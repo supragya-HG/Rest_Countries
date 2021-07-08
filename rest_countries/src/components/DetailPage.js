@@ -1,5 +1,4 @@
 import './DetailPage.css'
-import Country from './Country.js'
 import allCountriesObject from './allCountriesData.js'
 import {Link} from 'react-router-dom'
 
@@ -9,14 +8,57 @@ function DetailPage(props){
     const countryDetail = allCountriesObject.filter(country => { return country.name.toLowerCase() === countryName.toLowerCase()})
     console.log(countryDetail);
     const countryData = countryDetail[0];
+
+    let borderCountries = [], countryCurrencies = [], countryLanguages = [];
+    if(countryData){
+        countryData.borders.forEach( country =>{
+            borderCountries.push(
+                <Link to = {`/countryDetail/${country}`}>
+                    <div className='BorderCountry'>{country}</div>
+                </Link>
+            )
+        });
+
+        for(let i=0; i<countryData.currencies.length; i++){
+            countryCurrencies.push(
+                <span className='countryInfoData'>{countryData.currencies[i].name}</span>
+            )
+            if(i !== countryData.currencies.length - 1){
+                countryCurrencies.push(<span>, </span>)
+            }
+        }
+
+        for(let i=0; i<countryData.languages.length; i++){
+            countryLanguages.push(
+                <span className='countryInfoData'>{countryData.languages[i].name}</span>
+            )
+            if(i !== countryData.languages.length - 1){
+                countryLanguages.push(<span>, </span>)
+            }
+        }
+    }
+    else{
+        return(
+            <div>
+                <Link to = "/">
+                    <div className = 'backBtn'>
+                    Back
+                    </div>
+                </Link>
+
+                <h1>No Such Country Exists!!!</h1>
+            </div>
+        );
+    }
+
     return(
         <div>
             <Link to = "/">
                 <div className = 'backBtn'>
-                Back
+                Home
                 </div>
             </Link>
-            
+
             <h1>Requested Country: {countryData.name}</h1>
             <div className='flagDetail'>
                 <img src = {countryData.flag} alt = 'flag' className='flagImageDetail'/>
@@ -32,16 +74,16 @@ function DetailPage(props){
                 <div className='countryInfo'>Top Level Domain: <span className='countryInfoData'>{countryData.topLevelDomain}</span></div>
                 <div className='countryInfo'>
                     Currencies: 
-                    <span className='countryInfoData'>{countryData.currencies[0].name}</span>
+                    {countryCurrencies}
                 </div>
                 <div className='countryInfo'>
                     Languages: 
-                    <span className='countryInfoData'>{countryData.languages[0].name}</span>
+                    {countryLanguages}
                 </div>
                 
                 <div className='countryInfo'>
                     Border Countries: 
-                    <span className='countryInfoData'>{countryData.borders[0]}</span>
+                    {borderCountries}
                 </div>
                 
                 </div>
