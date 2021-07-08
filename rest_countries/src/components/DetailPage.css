@@ -1,0 +1,21 @@
+.flagImageDetail{
+    width: 40%;
+    height: 20%;
+    object-fit: cover;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /* background-image: url({indFlag}); */
+} 
+
+
+.countryInfo{
+    text-align: left;
+    font-weight: 400;
+    margin-left: 1em;
+}
+
+.countryInfoData{
+    text-align: left;
+    font-weight: 300;
+}

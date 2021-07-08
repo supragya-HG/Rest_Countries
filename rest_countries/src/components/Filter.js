@@ -1,10 +1,18 @@
 import './Filter.css';
 
-function Filter() {
+function Filter(props) {
     return (
         <div className='filter'>
             <form>
-                <input value="Filter To be implemented"></input>
+            <select name="region" id="regionsFilter" value={props.filterQuery} onChange={e => props.setFilterQuery(e.target.value)}>
+                <option value="" disabled selected hidden>Filter by Region</option>
+                <option value="Africa">Africa</option>
+                <option value="America">America</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+            {/* <button type="submit">Filter</button> */}
             </form>
         </div>
     );

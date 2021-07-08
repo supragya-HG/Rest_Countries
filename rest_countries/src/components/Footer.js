@@ -10,7 +10,7 @@ function Footer(){
 
     return (
         <div className = 'footer'>
-            <button onClick = {refershCountryGrid}>New Grid</button>
+            {/* <button onClick = {refershCountryGrid}>New Grid</button> */}
         </div>
 
     );
