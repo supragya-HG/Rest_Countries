@@ -15,8 +15,10 @@
 }
 .mode-button{
     /* justify-content: flex-end; */
-    padding-left: 5%;
-    padding-right: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
     background-color: inherit;
     border: none;
+    padding: 0.5em;
+    background-color: tomato;
 }

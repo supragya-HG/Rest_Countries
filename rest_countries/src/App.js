@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,11 +9,14 @@ import {
   useParams
 } from "react-router-dom";
 import Header from './components/Header.js'
-import Footer from './components/Footer.js'
+// import Footer from './components/Footer.js'
 import Search from './components/Search.js'
 import Filter from './components/Filter.js'
 import CountryGrid from './components/CountryGrid.js'
 import DetailPage from './components/DetailPage.js'
+import {ThemeProvider} from "styled-components";
+import { GlobalStyles } from "./components/GlobalStyles.js";
+import { lightTheme, darkTheme } from "./components/Themes.js"
 
 function App() {
   const { address } = window.location;
@@ -22,6 +25,11 @@ function App() {
   const [searchQuery, setSearchQuery] = useState(query || '');
   const [filterQuery, setFilterQuery] = useState(regionFilter || '');
 
+  const [theme, setTheme] = useState('light');
+  const themeToggler = () => {
+      theme === 'light' ? setTheme('dark') : setTheme('light')
+    }
+
   return(
     <Router>
 
@@ -29,14 +37,24 @@ function App() {
         <Switch>
           
           <Route path="/countryDetail">
-            <CountryDetail />
+            <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+            <>
+            <GlobalStyles/>
+                <CountryDetail  themeTogglerFn = {themeToggler}/>
+                </>
+            </ThemeProvider>
           </Route>
 
 
           <Route path="/"> 
               <div className="App">
+
+              <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+              <>
+              <GlobalStyles/>
+
                 <div className='AppHeader'>
-                  <Header></Header>
+                  <Header themeTogglerFn = {themeToggler}></Header>
                   <hr></hr>
                 </div>
 
@@ -47,7 +65,10 @@ function App() {
 
                 <CountryGrid searchValue = {searchQuery} filterValue = {filterQuery}></CountryGrid>
                 
-                <Footer></Footer>
+                {/* <Footer></Footer> */}
+              </>
+              </ThemeProvider>
+              
               </div>
           </Route>
 
@@ -60,14 +81,14 @@ function App() {
 }
 
 
-function CountryDetail() {
+function CountryDetail(props) {
   let match = useRouteMatch();
 
   return (
     <div className="App">
       
       <div className='AppHeader'>
-        <Header></Header>
+        <Header themeTogglerFn = {props.themeTogglerFn}></Header>
         <hr></hr>
       </div>
 

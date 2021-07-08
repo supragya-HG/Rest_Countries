@@ -1,7 +1,8 @@
 import './CountryGrid.css'
 import Country from './Country.js'
-import allCountriesObject from './allCountriesData.js'
+import CountriesDataObject from './allCountriesData.js'
 import {Link} from 'react-router-dom'
+const allCountriesObject = CountriesDataObject[0];
 
 // function shuffle(array) {
 //     var currentIndex = array.length,  randomIndex;
