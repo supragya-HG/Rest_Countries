@@ -1,29 +1,40 @@
 
 .countryGrid{
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    width: 94%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    /* flex-wrap: wrap; */
+    width: 100%;
     height: auto;
-    margin: 2%;
+    margin: none;
     border: none;
     padding: 1%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   
 .country{
-    margin: 0%;
-    padding: 2%;
-    width: 20vw;
-    height: 40vh;
+    margin: 3%;
+    padding: 0%;
+    width: 94%;
+    height: auto;
     border-radius: 2px;
     border-width: 2px;
 }
 
 
+@media (max-width: 1000px) {
+    .countryGrid{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media (max-width: 650px) {
+    .countryGrid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
 @media (max-width: 375px) {
     .countryGrid{
-        flex-direction: column;
+        grid-template-columns: 1fr;
         width: 100vw;
         justify-content: center;
         align-items: center;

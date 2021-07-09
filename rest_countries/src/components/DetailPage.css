@@ -65,10 +65,10 @@ h2{
 }
 
 .BorderCountryBtn{
-    border-radius: 1px;
+    /* border-radius: 1px;
     border-width: 2px;
-    width: 90%;
-    padding: auto;
+    width: 90%; */
+    /* padding: auto; */
     margin-bottom: 3%;
     margin-top: 3%;
 }
@@ -83,4 +83,8 @@ h2{
 .countryInfoData{
     text-align: left;
     font-weight: 300;
+}
+
+@media (max-width: 1000px) {
+    
 }

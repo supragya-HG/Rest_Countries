@@ -17,7 +17,7 @@ function DetailPage(props){
             let CName = mapCountryCode[country];
             borderCountries.push(
                 <Link to = {`/countryDetail/${CName}`}>
-                    <button className='BorderCountryBtn'>
+                    <button className='BorderCountryBtn btn btn-outline-secondary'>
                         {CName.split('(')[0]}
                     </button>
                 </Link>
@@ -69,7 +69,7 @@ function DetailPage(props){
                     <button>Home</button>
                 </Link> */}
                 <>
-                    <button onClick={() => history.goBack()}>Back</button>
+                    <button onClick={() => history.goBack()} className=' btn btn-outline-secondary'>Back</button>
                 </>
             </div>
             {/* <h1>Requested Country: {countryData.name}</h1> */}

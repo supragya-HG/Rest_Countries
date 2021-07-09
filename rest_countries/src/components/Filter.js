@@ -4,7 +4,7 @@ function Filter(props) {
     return (
         <div className='filter'>
             <form>
-            <select name="region" id="regionsFilter" value={props.filterQuery} onChange={e => props.setFilterQuery(e.target.value)}>
+            <select name="region" id="regionsFilter" value={props.filterQuery} onChange={e => props.setFilterQuery(e.target.value)} className="form-select">
                 <option value="" disabled selected hidden>Filter by Region</option>
                 <option value="Africa">Africa</option>
                 <option value="America">America</option>

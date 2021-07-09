@@ -59,11 +59,11 @@ function CountryGrid(props){
 
     for( let i = 0; i < countries.length; i++){
         countryGridDiv.push(
-            <Link to = {`/countryDetail/${countries[i].name}`}>
-                <div className = 'country'>
-                <Country name={countries[i].name} population={countries[i].population} capital={countries[i].capital} region = {countries[i].region} flagUrl = {countries[i].flag}></Country>
-                </div>
-            </Link>
+            <div className = 'country'>
+                <Link to = {`/countryDetail/${countries[i].name}`}>
+                    <Country name={countries[i].name} population={countries[i].population} capital={countries[i].capital} region = {countries[i].region} flagUrl = {countries[i].flag}></Country>
+                </Link>
+            </div>
         );
     }
 
