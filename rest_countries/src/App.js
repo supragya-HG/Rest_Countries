@@ -89,7 +89,6 @@ function CountryDetail(props) {
       
       <div className='AppHeader'>
         <Header themeTogglerFn = {props.themeTogglerFn}></Header>
-        <hr></hr>
       </div>
 
       {/* <ul>

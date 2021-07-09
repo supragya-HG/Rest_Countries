@@ -52,7 +52,7 @@ function CountryGrid(props){
     if(countries.length === 0){
         countryGridDiv.push(
             <div>
-                <h1>Oops, No such Country Exists!!!</h1>
+                <h5>Oops, No such Country Exists!!!</h5>
             </div>
         )
     }
