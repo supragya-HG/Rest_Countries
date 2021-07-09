@@ -55,7 +55,7 @@ function App() {
 
                 <div className='AppHeader'>
                   <Header themeTogglerFn = {themeToggler}></Header>
-                  <hr></hr>
+                  
                 </div>
 
                 <div className='SearchFilter'>
