@@ -3,9 +3,9 @@ import CountriesDataObject from './allCountriesData.js'
 import {Link, useHistory} from 'react-router-dom'
 const allCountriesObject = CountriesDataObject[0];
 const mapCountryCode = CountriesDataObject[1];
-
 function DetailPage(props){
     let history = useHistory();
+    var NoBorderCountriesReply = '';
     let countryName = props.countryName;
     const countryDetail = allCountriesObject.filter(country => { return country.name.toLowerCase() === countryName.toLowerCase()})
     // console.log(countryDetail);
@@ -16,16 +16,17 @@ function DetailPage(props){
         countryData.borders.forEach( country =>{
             let CName = mapCountryCode[country];
             borderCountries.push(
-                <Link to = {`/countryDetail/${CName}`}>
-                    <button className='BorderCountryBtn btn btn-outline-secondary'>
+                <button className='BorderCountryBtn btn btn-outline-secondary'>
+                    <Link to = {`/countryDetail/${CName}`}>
                         {CName.split('(')[0]}
+                    </Link>
                     </button>
-                </Link>
             )
         });
 
         if(countryData.borders.length === 0){
-            borderCountries.push(<span className='countryInfoData'>No Bordering Countries</span>)
+            NoBorderCountriesReply = 'No Bordering Countries';
+            // borderCountries.push(<span className='countryInfoData'>No Bordering Countries</span>)
         }
 
         for(let i=0; i<countryData.currencies.length; i++){
@@ -100,6 +101,7 @@ function DetailPage(props){
                     </div>
                         <div className='borderCountryInfo'>
                             Border Countries: &#160;
+                            <span className='countryInfoData'>{NoBorderCountriesReply}</span>
                             <div className='borderCountryGrid'>
                                 {borderCountries}
                             </div>
