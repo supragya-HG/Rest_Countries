@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,11 +8,14 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
+import { lazy } from "@loadable/component";
+
 import Header from './components/Header.js'
 // import Footer from './components/Footer.js'
 import Search from './components/Search.js'
 import Filter from './components/Filter.js'
-import CountryGrid from './components/CountryGrid.js'
+import Loader from './components/Loader.js'
+// import CountryGrid from './components/CountryGrid.js'
 import DetailPage from './components/DetailPage.js'
 import {ThemeProvider} from "styled-components";
 import { GlobalStyles } from "./components/GlobalStyles.js";
@@ -29,6 +32,15 @@ function App() {
   const themeToggler = () => {
       theme === 'light' ? setTheme('dark') : setTheme('light')
     }
+
+  const CountryGrid = lazy(
+    () =>
+      new Promise((resolve, reject) =>
+        setTimeout(() => resolve(import("./components/CountryGrid.js")), 500)
+      )
+  );
+  
+  
 
   return(
     <Router>
@@ -62,8 +74,9 @@ function App() {
                   <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery}></Search>
                   <Filter filterQuery={filterQuery} setFilterQuery={setFilterQuery}></Filter>
                 </div>
-
-                <CountryGrid searchValue = {searchQuery} filterValue = {filterQuery}></CountryGrid>
+                <Suspense fallback={<Loader />}>
+                  <CountryGrid searchValue = {searchQuery} filterValue = {filterQuery}></CountryGrid>
+                </Suspense>
                 
                 {/* <Footer></Footer> */}
               </>
